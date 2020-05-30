@@ -5,6 +5,31 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    routes: [{
+      name: 'Home',
+      route: '/'
+    },
+    {
+      name: 'Appeal',
+      route: '/'
+    },
+    {
+      name: 'Pricing',
+      route: '/'
+    },
+    {
+      name: 'FAQs',
+      route: '/'
+    },
+    {
+      name: 'Blog',
+      route: '/'
+    }]
+  },
+  getters: {
+    getRoutes(state){
+      return state.routes
+    }
   },
   mutations: {
   },
