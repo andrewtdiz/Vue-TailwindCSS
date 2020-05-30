@@ -1,5 +1,5 @@
 <template>
-  <div class="flex px-12 py-1 items-center" style=" box-shadow: 0 4px 4px -2px rgba(0,0,0,0.1);">
+  <div class="flex px-12 py-2 items-center border-b border-gray-300">
       <div class="flex items-end lg:w-1/2 cursor-pointer sm:my-0">
 
         <img class="" width="40px" height="40px" alt="realAppeal_icon.png" data-type="image" src="../assets/realappeal_logo.png">

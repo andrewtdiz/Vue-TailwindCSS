@@ -5,10 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    routes: [{
-      name: 'Home',
-      route: '/'
-    },
+    routes: [
     {
       name: 'Appeal',
       route: '/'
