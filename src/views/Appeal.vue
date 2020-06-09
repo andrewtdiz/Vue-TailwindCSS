@@ -33,15 +33,12 @@
         <!-- <div class="absolute w-full h-full" style="background: #02050385">
 
         </div> -->
-        <div class="absolute w-1/2 justify-center flex flex-col z-10 px-20 flex-col items-center h-full ">
-        <div class="flex flex-col items-start">
+        <div class="absolute justify-center flex flex-col z-10 px-20 flex-col items-start h-full ">
           <p class="text-4xl text-gray-800 font-bold text-left leading-tight">Start saving money <br> on your property taxes</p>
           <p class="text-lg text-left mt-4 text-gray-800 font-hairline leading-tight">File an appeal and reduce your real estate taxes or <br> get your money back - guaranteed</p>
           <div class="rounded bg-brand-500 cursor-pointer px-8 py-2 mt-4 text-white hover:bg-brand-600 mb-3">
             <p class="text-md font-light ">Appeal</p> 
           </div>
-        </div>
-          
         </div>
         <div id="logo" class="ml-auto justify-center flex flex-col items-center h-full" style="overflow:hidden; width:55%;">
           <img class="" style="width: 100%" src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" alt="">
@@ -136,7 +133,6 @@ import NavBar from '../components/NavBar.vue'
 
 
 export default {
-  name: 'Home',
   components: {
     NavBar,
   }

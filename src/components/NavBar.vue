@@ -1,19 +1,24 @@
 <template>
   <div class="flex px-12 py-2 items-center ">
       <div class="flex items-end lg:w-1/2 cursor-pointer sm:my-0">
+        <router-link class="" to="/">
 
-        <img class="" width="40px" height="40px" alt="realAppeal_icon.png" data-type="image" src="../assets/realappeal_logo.png">
+        <img class="" width="40px" height="40px" alt="realAppeal_icon.png" style="cursor: pointer !important" data-type="image" src="../assets/realappeal_logo.png">
+
+        </router-link>
 
         <div class="flex items-baseline ">
-          <p class="text-xl md:text-xl font-bold ml-2 text-brand-700"> real<span class=" text-brand-500 ">Appeal</span> </p>
+          <router-link class="" to="/">
+            <p class="text-xl md:text-xl font-bold ml-2 text-brand-700" style="cursor: pointer !important"> real<span class=" text-brand-500 ">Appeal</span> </p>
+          </router-link>
         
           <p class="text-sm hidden sm:block font-light ml-2 "> simple & fast property tax appeals</p>
         </div>
         
       </div>
       <div class="flex items-stretch ml-auto items-center mt-2">
-        <router-link class="mx-6" v-for="(route,ind) in routes" :key="ind" to="/">
-          <nav-bar-item :label="route.name"/>
+        <router-link class="mx-6" v-for="(route,ind) in routes" :key="ind" :to="route.route">
+          <nav-bar-item v-if="(route.route != '/' && $router.currentRoute != '/')" :label="route.name"/>
         </router-link>
       </div>
       

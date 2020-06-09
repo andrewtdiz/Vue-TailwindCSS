@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col justify-center overflow-x-hidden cursor-pointer py-2 relative" @mouseenter="hovering = true" @mouseleave="hovering = false">
-        <p class="select-none font-medium text-lg" :class="hovering ? 'text-black' : 'text-gray-800'">{{label}}</p>
+  <div class="flex flex-col justify-center overflow-x-hidden cursor-pointer py-2 relative" style="cursor: pointer !important" @mouseenter="hovering = true" @mouseleave="hovering = false">
+        <p class="select-none font-medium text-lg" style="cursor: pointer !important" :class="hovering ? 'text-black' : 'text-gray-800'">{{label}}</p>
         <div class="absolute mt-3 bg-brand-500 animate-nav" style="height: 3px; left: -5px; transform: translateX(-5%);" :style="{width: hovering ? '75px' : '0px'}">
 
         </div>
