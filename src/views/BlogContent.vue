@@ -47,7 +47,7 @@
                         <img alt="post" src="https://dummyimage.com/104x104" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
                         <span class="flex-grow flex flex-col pl-4">
                             <span class="title-font font-medium text-gray-900">{{post.username}}</span>
-                            <span class="text-gray-500 text-sm">{{post.usertitle}}</span>
+                            <span class="text-gray-500 text-left text-sm">{{post.usertitle}}</span>
                         </span>
                         </a>
                         

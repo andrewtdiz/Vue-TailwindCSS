@@ -16,11 +16,11 @@
                 <div class="flex md:justify-center flex-wrap -m-12">
                 <div class="p-12 md:w-3/4 flex flex-col items-start">
                     <div class="flex">
-                        <span v-for="(category, ind2) in blog.categories" :key="ind2+100" class="inline-block py-1 px-3 mr-2 rounded bg-brand-100 text-brand-500 text-sm font-medium tracking-widest">{{category}}</span>
+                        <span v-for="(category, ind2) in blog.categories" :key="ind2+100" class="inline-block py-1 px-3 mr-2 rounded bg-brand-100 text-brand-600 text-sm font-medium tracking-widest">{{category}}</span>
 
                     </div>
                     <router-link class="" :to="'/blog/'+blog.id">
-                        <h2 class="sm:text-3xl text-2xl title-font text-brand-600 text-left hover:text-brand-700 font-bold mt-4 " style="cursor: pointer !important">{{blog.title}}</h2>
+                        <h2 class="sm:text-3xl text-2xl title-font text-brand-700 text-left hover:text-brand-800 font-bold mt-4 " style="cursor: pointer !important">{{blog.title}}</h2>
                     </router-link>
                     <p class="text-md font-medium text-left mt-1 mb-4">Last updated: <span class="font-normal">{{blog.date}}</span> </p>
 
@@ -36,7 +36,7 @@
                         <img alt="blog" src="https://dummyimage.com/104x104" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
                         <span class="flex-grow flex flex-col pl-4">
                             <span class="title-font font-medium text-gray-900">{{blog.username}}</span>
-                            <span class="text-gray-500 text-sm">{{blog.usertitle}}</span>
+                            <span class="text-gray-500 text-left text-sm">{{blog.usertitle}}</span>
                         </span>
                         </a>
                         

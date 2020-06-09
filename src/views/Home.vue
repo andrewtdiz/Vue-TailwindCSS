@@ -2,9 +2,6 @@
   <div class="flex flex-col w-full items-center">
     <div class="w-full">
       
-      <div class="flex flex-col h-screen">
-
-      
       <NavBar />
       <div class="h-20 bg-brand-200 justify-center flex flex-col items-center relative border-b border-gray-300">
         <div class="absolute top-0 right-0 mr-1 mt-1">
@@ -24,7 +21,7 @@
           </svg>
         </div>
         <div class="flex items-baseline">
-          <p class="text-base text-gray-700">Get the latest updates on your tax appeals during COVID</p>
+          <p class="text-base text-gray-800">Get the latest updates on your tax appeals during COVID</p>
           <p class="text-brand-700 text-sm ml-4 bg-white hover:bg-brand-500 hover:text-white rounded px-3 py-1 cursor-pointer hover:underline">Learn More</p>
         </div>
         
@@ -33,7 +30,7 @@
         <!-- <div class="absolute w-full h-full" style="background: #02050385">
 
         </div> -->
-        <div class="absolute w-1/2 justify-center flex flex-col z-10 px-20 flex-col items-center h-full ">
+        <!-- <div class="absolute w-1/2 justify-center flex flex-col z-10 px-20 flex-col items-center h-full ">
         <div class="flex flex-col items-start">
           <p class="text-4xl text-gray-800 font-bold text-left leading-tight">Start saving money <br> on your property taxes</p>
           <p class="text-lg text-left mt-4 text-gray-800 font-hairline leading-tight">File an appeal and reduce your real estate taxes or <br> get your money back - guaranteed</p>
@@ -42,25 +39,60 @@
           </div>
         </div>
           
+        </div> -->
+        
+        <div class="relative pb-4 lg:pb-o flex content-center items-stretch justify-center" style="min-height: 55vh;">
+          <img alt="..." src="/img/sanfran.f8fd21e1.png" class="absolute top-0 w-full h-full bg-center bg-cover object-cover" style="transform: scaleX(1);">
+          <div id="blackOverlay" class="w-full h-full absolute bg-black" style="opacity: 0.5">
+          </div>
+          <div class="relative w-screen flex justify-center items-stretch overflow-x-hidden overflow-y-hidden mt-auto mb-4">
+            <div class="flex justify-start h-full container justify-center sm:justify-start mx-4 md:mx-0">
+              <div class="flex flex-col items-start text-white rounded-md pb-4 pr-auto">
+                <p data-aos="fade-down" class="text-2xl w-full text-center sm:text-left sm:text-2xl lg:text-45xl xl:text-5xl leading-none font-bold">Start saving money <br> on your property taxes</p>
+                <p data-aos="fade-up" class="text-sm w-full text-center sm:text-left sm:text-lg lg:text-lg leading-none font-normal pt-4 hidden sm:block">File an appeal and reduce your real estate <br> taxes or get your money back - guaranteed</p>
+                <div data-aos="fade-up" class="flex justify-start w-full">
+                  <button class="px-4 text-sm sm:text-md py-1 lg:px-8 lg:py-2 shadow-lg text-teal-600 bg-white rounded my-3 mt-4 lg:mt-6 hover:bg-teal-500 hover:text-white">Learn More</button>
+                </div>
+            </div>
+          </div>
         </div>
-        <div id="logo" class="ml-auto justify-center flex flex-col items-center h-full" style="overflow:hidden; width:55%;">
-          <img class="" style="width: 100%" src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" alt="">
-          
         </div>
 
       </div>
-      <section class="flex-1 text-gray-700 body-font flex flex-col justify-center">
-        <div class="container px-5 mx-auto">
-          <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
-            <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900">Slow-carb next level shoindxgoitch ethical authentic, scenester sriracha forage.</h1>
-            <button class="flex-shrink-0 text-white bg-brand-500 border-0 py-2 px-8 focus:outline-none hover:bg-brand-600 rounded text-lg mt-10 sm:mt-0">Button</button>
+
+      <section class="flex-1 text-gray-700 body-font flex mt-8 mb-2 flex-col justify-center">
+        <div class="container px-5 mx-auto flex flex-col items-center">
+          <div class="flex flex-col items-center mx-auto">
+            <h1 class="flex-grow text-5xl font-medium title-font text-gray-800">The savings process</h1>
+            <div class="mt-4 h-1 w-16 bg-gray-600">
+
+            </div>
           </div>
         </div>
       </section>
-      </div>
 
-      <section class="text-gray-700 body-font">
-        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+
+      <section v-for="(step,ind) in steps" :key="ind" class="w-full text-gray-700 body-font flex items-stretch justify-center" style="height: 50vh" :class="ind%2==0 ? 'flex-row' : 'flex-row-reverse'">
+        <div class="w-1/2 flex items-center" :class="ind%2==0 ? 'justify-end' : 'justify-start'">
+          <div class="flex flex-col sm:ml-3" :class="ind%2==0 ? 'items-end' : 'items-start'">
+            <div class="flex flex-col" :class="ind%2==0 ? 'items-end' : 'items-start'">
+              <div class="bg-teal-500 rounded-full h-12 w-12 shadow-md flex justify-center items-center">
+                <p class="text-3xl text-white font-medium ">{{ind+1}}</p>
+              </div>
+              <p class="font-bold sm:text-45xl mt-4 mb-2 text-gray-800" :class="ind%2==0 ? 'text-right' : 'text-left'"> {{step.heading}}</p>
+            </div>
+            <p class="text-md w-80 sm:text-lg font-light hidden lg:block" :class="ind%2==0 ? 'text-right' : 'text-left'">{{step.desc}}</p>
+          </div>
+        </div>
+        <div class="w-1/2 py-4 px-12 flex justify-start mr-auto" :class="ind%2==0 ? ['justify-start'] : ['justify-end']">
+          <img class="h-full w-auto" :src="require('../assets/' + step.image)" alt="">
+        </div>
+      </section>
+      
+
+
+      <!-- <section class="text-gray-700 body-font">
+        <div class="container px-5 pt-2 mx-auto flex flex-wrap">
           <div class="flex flex-wrap w-full">
             <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
               <div class="flex relative pb-12">
@@ -86,9 +118,7 @@
                 </div>
                 <div class="flex-grow pl-4">
                   <h2 class="font-bold text-left title-font text-lg text-gray-900 mb-1">We estimate your tax savings</h2>
-                  <p class="leading-relaxed text-left">We calculate your potential tax savings by using
-your home information to determine a fair assessment of
-your home's value based on nearby properties.</p>
+                  <p class="leading-relaxed text-left">We calculate your potential tax savings by using your home information to determine a fair assessment of your home's value based on nearby properties.</p>
                 </div>
               </div>
               <div class="flex relative pb-12">
@@ -101,10 +131,7 @@ your home's value based on nearby properties.</p>
                 </div>
                 <div class="flex-grow pl-4">
                   <h2 class="font-bold text-left title-font text-lg text-gray-900 mb-1">We submit your appeal, hassle-free</h2>
-                  <p class="leading-relaxed text-left">Submit an appeal through realAppeal and we will
-handle all the paperwork working with your tax
-assessors to help you save on your real estate
-taxes.</p>
+                  <p class="leading-relaxed text-left">Submit an appeal through realAppeal and we will handle all the paperwork working with your tax assessors to help you save on your real estate taxes.</p>
                 </div>
               </div>
               <div class="flex relative">
@@ -114,17 +141,57 @@ taxes.</p>
                 </div>
                 <div class="flex-grow pl-4">
                   <h2 class="font-bold text-left title-font text-xl text-gray-900 mb-1">You save money</h2>
-                  <p class="leading-relaxed text-left">Within 6-8 weeks you will hear from your
-county how much your tax bill is reduced by. Over
-90% of our appeals are successful and have saved
-customers thousands of dollars.</p>
+                  <p class="leading-relaxed text-left">Within 6-8 weeks you will hear from your county how much your tax bill is reduced by. Over 90% of our appeals are successful and have saved customers thousands of dollars.</p>
                 </div>
               </div>
             </div>
             <img class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12" src="https://dummyimage.com/1200x500" alt="step">
           </div>
         </div>
+      </section> -->
+
+      <section class="flex-1 text-gray-700 body-font flex mt-8 mb-2 flex-col justify-center">
+        <div class="container px-5 mx-auto flex flex-col items-center">
+          <div class="flex flex-col items-center mx-auto">
+            <h1 class="flex-grow text-5xl font-medium title-font text-gray-800">Follow the money</h1>
+            <div class="mt-4 h-1 w-16 bg-gray-600">
+
+            </div>
+          </div>
+        </div>
       </section>
+
+      <section class="flex-1 text-gray-700 body-font flex flex-col justify-center">
+        <div class="container py-16 flex flex-row-reverse px-5 mx-auto">
+          <div class="lg:w-1/2 flex flex-col items-start mx-auto">
+            <h1 class="text-4xl font-black title-font text-left text-gray-800">You could be overpaying on your property taxes every year</h1>
+            <h1 class="text-2xl font-regular title-font text-left mt-4 text-gray-800">Slow-carb next level shoindxgoitch ethical authentic, scenester sriracha forage.</h1>
+            <button class="text-2xl font-medium title-font bg-brand-500 text-white text-left mt-4 px-12 py-2 rounded">Appeal</button>
+          </div>
+          <div class="lg:w-1/2 flex flex-col items-start mx-auto">
+            <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900">Slow-carb next level shoindxgoitch ethical authentic, scenester sriracha forage.</h1>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="text-gray-700 body-font">
+        <div class="container mx-auto flex px-5 py-24 md:flex-row-reverse flex-col items-center">
+          <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">What is realAppeal?
+            </h1>
+            <p class="mb-8 leading-relaxed">realAppeal is an online solution for property tax appeals. We help homeowners identify if they're paying too much in real estate taxes. If so, we can quickly appeal their property taxes getting property owners the savings they deserve. We are currently filing appeals for customers nationwide, in accordance with local laws and deadlines.</p>
+            <div class="flex justify-center">
+              <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+              <button class="ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded text-lg">Button</button>
+            </div>
+          </div>
+          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+            <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+          </div>
+        </div>
+      </section> -->
+
+      
     </div>
     
     
@@ -137,8 +204,18 @@ import NavBar from '../components/NavBar.vue'
 
 export default {
   name: 'Home',
+  data() {
+    return {
+      steps: [],
+    }
+  },
   components: {
     NavBar,
+  },
+  created() {
+    this.steps = this.$store.state.steps
+  },
+  computed: {
   }
 }
 </script>

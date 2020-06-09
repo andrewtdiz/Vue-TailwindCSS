@@ -1,5 +1,5 @@
 <template>
-  <div class="flex px-12 py-2 items-center ">
+  <div class="flex px-6 xl:px-12 py-2 items-center ">
       <div class="flex items-end lg:w-1/2 cursor-pointer sm:my-0">
         <router-link class="" to="/">
 
@@ -18,7 +18,7 @@
       </div>
       <div class="flex items-stretch ml-auto items-center mt-2">
         <router-link class="mx-6" v-for="(route,ind) in routes" :key="ind" :to="route.route">
-          <nav-bar-item v-if="(route.route != '/' && $router.currentRoute != '/')" :label="route.name"/>
+          <nav-bar-item v-if="(route.route != '/' && $router.currentRoute != '/')" :route="route.route" :label="route.name"/>
         </router-link>
       </div>
       
