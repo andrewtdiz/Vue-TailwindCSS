@@ -1,32 +1,9 @@
 <template>
   <div class="flex flex-col w-full items-center">
     <div class="w-full">
-      
-      <NavBar />
-      <div class="h-20 bg-brand-200 justify-center flex flex-col items-center relative border-b border-gray-300">
-        <div class="absolute top-0 right-0 mr-1 mt-1">
-          <svg version="1.1" class="h-3 w-3 fill-current text-gray-700 mr-1 mt-1 hover:text-black cursor-pointer" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            viewBox="0 0 492 492" style="enable-background:new 0 0 492 492;" xml:space="preserve">
-          <g>
-            <g>
-              <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
-                c-5.068-5.076-11.824-7.856-19.036-7.856c-7.2,0-13.956,2.78-19.024,7.856L246.008,191.82L62.048,7.872
-                c-5.06-5.076-11.82-7.856-19.028-7.856c-7.2,0-13.96,2.78-19.02,7.856L7.872,23.988c-10.496,10.496-10.496,27.568,0,38.052
-                L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
-                c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
-                c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
-                c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"/>
-            </g>
-          </g>
-          </svg>
-        </div>
-        <div class="flex items-baseline">
-          <p class="text-base text-gray-800">Get the latest updates on your tax appeals during COVID</p>
-          <p class="text-brand-700 text-sm ml-4 bg-white hover:bg-brand-500 hover:text-white rounded px-3 py-1 cursor-pointer hover:underline">Learn More</p>
-        </div>
-        
-      </div>
-      <div class="flex relative bg-gray-100" >
+      <div class="flex flex-col h-screen">
+        <NavBar />
+         <div class="flex relative bg-gray-100" >
         <!-- <div class="absolute w-full h-full" style="background: #02050385">
 
         </div> -->
@@ -59,6 +36,38 @@
         </div>
 
       </div>
+
+<div data-v-f09b7626="" class="bg-white w-full flex justify-center sm:h-64 "><div data-v-f09b7626="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-once="true" class="flex container justify-center lg:justify-center items-center pt-1 w-full mx-2 md:mx-2 aos-init aos-animate" style="max-width: 920px;"><div data-v-f09b7626="" class="flex flex-col sm:flex-row sm:items-center w-full items-center"><div data-v-f09b7626="" class="sm:flex-1 sm:h-full flex items-center justify-start animated"><div data-v-f09b7626="" class="flex flex-col items-center"><img data-v-f09b7626="" alt="realAppeal" itemprop="image" src="/img/roofs.92423e49.png" style="object-position: 50% 50%; width: 291px; height: 84px; object-fit: cover;"><div data-v-f09b7626="" class="flex items-baseline mb-1"><p data-v-f09b7626="" class="text-5xl text-md font-bold ml-2 text-gray-700"> real<span data-v-f09b7626="" class=" text-teal-500 ">Appeal</span></p></div></div></div><div data-v-f09b7626="" class="flex-1 h-full flex items-center sm:ml-4"><div data-v-f09b7626="" class="flex flex-col items-start"><p data-v-f09b7626="" class="font-medium hidden sm:block sm:text-2xl mb-6 text-gray-800"> What is realAppeal? </p><p data-v-f09b7626="" class="text-md sm:text-lg font-light hidden lg:block animated">realAppeal is an online solution for property tax appeals. We help homeowners identify if they're paying too much in real estate taxes. If so, we can quickly appeal their property taxes getting property owners the savings they deserve. We are currently filing appeals for customers nationwide, in accordance with local laws and deadlines.</p><p data-v-f09b7626="" class="text-md hidden font-light sm:block mr-8 lg:hidden animated">realAppeal is an online solution for property tax appeals. We help homeowners identify if they're paying too much in real estate taxes. If so, we can quickly appeal their property taxes getting property owners the savings they deserve. We are currently filing appeals for customers nationwide, in accordance with local laws and deadlines.</p><p data-v-f09b7626="" class="text-md font-light block sm:hidden ml-12 mr-8 animated">realAppeal is an online solution for property tax appeals. We help homeowners identify if they're paying too much in real estate taxes.</p></div></div></div></div></div>
+
+      </div>
+      
+      
+
+      <!-- <div class="h-20 bg-brand-200 justify-center flex flex-col items-center relative border-b border-gray-300">
+        <div class="absolute top-0 right-0 mr-1 mt-1">
+          <svg version="1.1" class="h-3 w-3 fill-current text-gray-700 mr-1 mt-1 hover:text-black cursor-pointer" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="0 0 492 492" style="enable-background:new 0 0 492 492;" xml:space="preserve">
+          <g>
+            <g>
+              <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
+                c-5.068-5.076-11.824-7.856-19.036-7.856c-7.2,0-13.956,2.78-19.024,7.856L246.008,191.82L62.048,7.872
+                c-5.06-5.076-11.82-7.856-19.028-7.856c-7.2,0-13.96,2.78-19.02,7.856L7.872,23.988c-10.496,10.496-10.496,27.568,0,38.052
+                L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
+                c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
+                c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
+                c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"/>
+            </g>
+          </g>
+          </svg>
+        </div>
+        <div class="flex items-baseline">
+          <p class="text-base text-gray-800">Get the latest updates on your tax appeals during COVID</p>
+          <p class="text-brand-700 text-sm ml-4 bg-white hover:bg-brand-500 hover:text-white rounded px-3 py-1 cursor-pointer hover:underline">Learn More</p>
+        </div>
+        
+      </div> -->
+
+     
 
       <section class="flex-1 text-gray-700 body-font flex mt-8 mb-2 flex-col justify-center">
         <div class="container px-5 mx-auto flex flex-col items-center">
@@ -161,15 +170,15 @@
         </div>
       </section>
 
-      <section class="flex-1 text-gray-700 body-font flex flex-col justify-center">
+      <section class="text-gray-700 body-font flex items-stretch justify-center" style="height: 50vh">
         <div class="container py-16 flex flex-row-reverse px-5 mx-auto">
-          <div class="lg:w-1/2 flex flex-col items-start mx-auto">
+          <div class="lg:w-1/2 flex flex-col justify-center items-start mx-auto">
             <h1 class="text-4xl font-black title-font text-left text-gray-800">You could be overpaying on your property taxes every year</h1>
-            <h1 class="text-2xl font-regular title-font text-left mt-4 text-gray-800">Slow-carb next level shoindxgoitch ethical authentic, scenester sriracha forage.</h1>
+            <h1 class="text-2xl font-regular title-font text-left mt-4 text-gray-800">Start the appeal process to find out how much you can save</h1>
             <button class="text-2xl font-medium title-font bg-brand-500 text-white text-left mt-4 px-12 py-2 rounded">Appeal</button>
           </div>
-          <div class="lg:w-1/2 flex flex-col items-start mx-auto">
-            <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900">Slow-carb next level shoindxgoitch ethical authentic, scenester sriracha forage.</h1>
+          <div class="w-1/2 h-full py-16 flex mr-auto justify-center" >
+            <img class="h-full w-auto" :src="require('../assets/' + 'money.png')" alt="">
           </div>
         </div>
       </section>
