@@ -1,45 +1,81 @@
 <template>
-  <div class="flex flex-col w-full items-center">
-    <div class="w-full">
-      <div class="flex flex-col h-screen">
-        <NavBar />
-         <div class="flex relative bg-gray-100" >
-        <!-- <div class="absolute w-full h-full" style="background: #02050385">
+  <div class="flex flex-col w-full items-center overflow-x-hidden">
+      <div class="flex flex-col relative ">
+        <div class="flex flex-col h-screen">
+          <NavBar />
+         <div class="flex-1 flex relative h-screen" >
+          <!-- <div class="absolute w-full h-full" style="background: #02050385">
 
-        </div> -->
-        <!-- <div class="absolute w-1/2 justify-center flex flex-col z-10 px-20 flex-col items-center h-full ">
-        <div class="flex flex-col items-start">
-          <p class="text-4xl text-gray-800 font-bold text-left leading-tight">Start saving money <br> on your property taxes</p>
-          <p class="text-lg text-left mt-4 text-gray-800 font-hairline leading-tight">File an appeal and reduce your real estate taxes or <br> get your money back - guaranteed</p>
-          <div class="rounded bg-brand-500 cursor-pointer px-8 py-2 mt-4 text-white hover:bg-brand-600 mb-3">
-            <p class="text-md font-light ">Appeal</p> 
-          </div>
-        </div>
-          
-        </div> -->
-        
-        <div class="relative pb-4 lg:pb-o flex content-center items-stretch justify-center" style="min-height: 55vh;">
-          <img alt="..." src="/img/sanfran.f8fd21e1.png" class="absolute top-0 w-full h-full bg-center bg-cover object-cover" style="transform: scaleX(1);">
-          <div id="blackOverlay" class="w-full h-full absolute bg-black" style="opacity: 0.5">
-          </div>
-          <div class="relative w-screen flex justify-center items-stretch overflow-x-hidden overflow-y-hidden mt-auto mb-4">
-            <div class="flex justify-start h-full container justify-center sm:justify-start mx-4 md:mx-0">
-              <div class="flex flex-col items-start text-white rounded-md pb-4 pr-auto">
-                <p data-aos="fade-down" class="text-2xl w-full text-center sm:text-left sm:text-2xl lg:text-45xl xl:text-5xl leading-none font-bold">Start saving money <br> on your property taxes</p>
-                <p data-aos="fade-up" class="text-sm w-full text-center sm:text-left sm:text-lg lg:text-lg leading-none font-normal pt-4 hidden sm:block">File an appeal and reduce your real estate <br> taxes or get your money back - guaranteed</p>
-                <div data-aos="fade-up" class="flex justify-start w-full">
-                  <button class="px-4 text-sm sm:text-md py-1 lg:px-8 lg:py-2 shadow-lg text-teal-600 bg-white rounded my-3 mt-4 lg:mt-6 hover:bg-teal-500 hover:text-white">Learn More</button>
-                </div>
+          </div> -->
+          <!-- <div class="absolute w-1/2 justify-center flex flex-col z-10 px-20 flex-col items-center h-full ">
+          <div class="flex flex-col items-start">
+            <p class="text-4xl text-gray-800 font-bold text-left leading-tight">Start saving money <br> on your property taxes</p>
+            <p class="text-lg text-left mt-4 text-gray-800 font-hairline leading-tight">File an appeal and reduce your real estate taxes or <br> get your money back - guaranteed</p>
+            <div class="rounded bg-brand-500 cursor-pointer px-8 py-2 mt-4 text-white hover:bg-brand-600 mb-3">
+              <p class="text-md font-light ">Appeal</p> 
             </div>
           </div>
+            
+          </div> -->
+          
+          <div class="relative pb-4 lg:pb-o flex content-center items-stretch justify-center" style="min-height: 55vh;">
+            <div id="blackOverlay" class="w-full flex justify-end h-full absolute " >
+              <div class="z-50 absolute rounded bg-white shadow-xl border border-gray-200 z-50" style="top:50%; transform: translateY(-50%); height: 25rem; left: 60%">
+                
+              </div>
+              <div class="absolute rounded pt-4 bg-white flex justify-center items-center shadow-xl border border-gray-200 z-50 w-1/3" style="top:50%; transform: translate(-50%, -50%); height: 25rem; left: 75%;">
+                <div class="flex flex-col items-stretch">
+                  <div class="bg-gray-200 h-64 w-64 rounded"></div>
+                  <h1 class="text-xl mt-6">Average savings in LA County: </h1>
+                  <h1 class="text-xl mt-1 font-bold">$2,560</h1>
+                </div>
+                <div class="absolute flex top-0 left-0 p-2">
+                  <div class="h-3 w-3 mr-2 bg-red-500 rounded-full "></div>
+                  <div class="h-3 w-3 mr-2 rounded-full " style="background: #fbbd35"></div>
+                  <div class="h-3 w-3 mr-2 bg-green-500 rounded-full "></div>
+                </div>
+              </div>
+              <div class="absolute right-0 h-full bg-teal-500 w-1/4">
+
+              </div>
+            </div>
+            <div class="relative w-screen flex justify-center items-stretch my-auto">
+              <div class="flex justify-start h-full container justify-center sm:justify-start mx-4 md:mx-0">
+                <div class="flex flex-col items-start text-white rounded-md pb-4 pr-auto">
+                  <p class="text-2xl w-full text-gray-800 text-center sm:text-left sm:text-2xl lg:text-45xl xl:text-5xl leading-none font-bold">Start saving money <br> on your property taxes</p>
+                  <p class="text-sm w-full text-gray-800 text-center sm:text-left sm:text-lg leading-none font-normal mt-6 hidden sm:block">File an appeal and reduce your real estate taxes or get <br> your money back - guaranteed</p>
+                  <p class="text-sm w-full text-gray-800 text-center sm:text-left sm:text-md leading-none px-1 font-normal pt-4 mt-6 hidden sm:block">Search by city or county</p>
+                  <div class="flex justify-start w-full mt-2 ">
+                    <input type="text" class="bg-white rounded outline-none focus:border-teal-500 w-3/4 border-gray-500 text-gray-800 px-2 py-2 border  text-md" placeholder="City/County">
+                  </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          </div>
+
+          <div class="bg-white w-full flex justify-center bg-gray-100 py-12"> 
+          <div class="flex container justify-center lg:justify-center items-center pt-1 w-full mx-2 md:mx-2" style="max-width: 920px;">
+            <div class="flex flex-col sm:flex-row sm:items-center w-full items-center"><div class="sm:flex-1 sm:h-full flex items-center justify-start animated"><div class="flex flex-col items-center"><img alt="realAppeal" itemprop="image" src="../assets/roofs.png" ><div class="flex items-baseline mb-1">
+              </div>
+              </div>
+              </div>
+              <div class="flex-1 h-full flex items-center sm:ml-4">
+                <div class="flex flex-col items-start">
+                  <p class="font-medium hidden sm:block sm:text-2xl mb-6 text-gray-800"> What is realAppeal? </p>
+                  <p class="text-md sm:text-lg font-light hidden lg:block text-left">RealAppeal is an online solution for homeowners identify if they're paying too much in real estate taxes. We are currently filing appeals for customers nationwide, in accordance with local laws and deadlines.</p>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
         </div>
-        </div>
+        
 
-      </div>
+        
 
-<div data-v-f09b7626="" class="bg-white w-full flex justify-center sm:h-64 "><div data-v-f09b7626="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-once="true" class="flex container justify-center lg:justify-center items-center pt-1 w-full mx-2 md:mx-2 aos-init aos-animate" style="max-width: 920px;"><div data-v-f09b7626="" class="flex flex-col sm:flex-row sm:items-center w-full items-center"><div data-v-f09b7626="" class="sm:flex-1 sm:h-full flex items-center justify-start animated"><div data-v-f09b7626="" class="flex flex-col items-center"><img data-v-f09b7626="" alt="realAppeal" itemprop="image" src="/img/roofs.92423e49.png" style="object-position: 50% 50%; width: 291px; height: 84px; object-fit: cover;"><div data-v-f09b7626="" class="flex items-baseline mb-1"><p data-v-f09b7626="" class="text-5xl text-md font-bold ml-2 text-gray-700"> real<span data-v-f09b7626="" class=" text-teal-500 ">Appeal</span></p></div></div></div><div data-v-f09b7626="" class="flex-1 h-full flex items-center sm:ml-4"><div data-v-f09b7626="" class="flex flex-col items-start"><p data-v-f09b7626="" class="font-medium hidden sm:block sm:text-2xl mb-6 text-gray-800"> What is realAppeal? </p><p data-v-f09b7626="" class="text-md sm:text-lg font-light hidden lg:block animated">realAppeal is an online solution for property tax appeals. We help homeowners identify if they're paying too much in real estate taxes. If so, we can quickly appeal their property taxes getting property owners the savings they deserve. We are currently filing appeals for customers nationwide, in accordance with local laws and deadlines.</p><p data-v-f09b7626="" class="text-md hidden font-light sm:block mr-8 lg:hidden animated">realAppeal is an online solution for property tax appeals. We help homeowners identify if they're paying too much in real estate taxes. If so, we can quickly appeal their property taxes getting property owners the savings they deserve. We are currently filing appeals for customers nationwide, in accordance with local laws and deadlines.</p><p data-v-f09b7626="" class="text-md font-light block sm:hidden ml-12 mr-8 animated">realAppeal is an online solution for property tax appeals. We help homeowners identify if they're paying too much in real estate taxes.</p></div></div></div></div></div>
-
-      </div>
+              </div>
       
       
 
@@ -93,8 +129,8 @@
             <p class="text-md w-80 sm:text-lg font-light hidden lg:block" :class="ind%2==0 ? 'text-right' : 'text-left'">{{step.desc}}</p>
           </div>
         </div>
-        <div class="w-1/2 py-4 px-12 flex justify-start mr-auto" :class="ind%2==0 ? ['justify-start'] : ['justify-end']">
-          <img class="h-full w-auto" :src="require('../assets/' + step.image)" alt="">
+        <div class="w-1/2 py-4 px-12 flex flex-col " :class="ind%2==0 ? ['items-start'] : ['items-end']">
+          <img class="flex-1 w-auto" style="height: 100%; object-fit: cover" :src="require('../assets/' + step.image)" alt="">
         </div>
       </section>
       
@@ -201,7 +237,6 @@
       </section> -->
 
       
-    </div>
     
     
   </div>

@@ -1,6 +1,6 @@
 <template>
-  <div class="flex px-6 xl:px-12 py-2 items-center ">
-      <div class="flex items-end lg:w-1/2 cursor-pointer sm:my-0">
+  <div class="flex justify-center shadow-md z-50  w-full px-6 xl:px-12 py-2 items-center ">
+      <div class="flex  items-end cursor-pointer sm:my-0">
         <router-link class="" to="/">
 
         <img class="" width="40px" height="40px" alt="realAppeal_icon.png" style="cursor: pointer !important" data-type="image" src="../assets/realappeal_logo.png">
