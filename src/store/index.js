@@ -5,6 +5,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    stage: 0,
+    activeStage: -1,
+    prevStage: -1,
     blogPosts: [
       {
         id: 'DidYouKnow',
@@ -32,7 +35,7 @@ export default new Vuex.Store({
       }
     ],
     steps: [{
-      heading: 'Overassessment',
+      heading: 'Undervalued',
       desc: 'Property tax assessments are done in large swatches and are often inaccurate. Over 45% of homes are overassessed,',
       image: 'overassessed.png',
     },
@@ -74,6 +77,9 @@ export default new Vuex.Store({
     }]
   },
   getters: {
+    getStage(state) {
+      return state.stage
+    },
     getRoutes(state){
       return state.routes
     },
@@ -83,8 +89,21 @@ export default new Vuex.Store({
     getSteps(state) {
       return state.getSteps
     },
+    getActiveStage(state) {
+      return state.activeStage
+    },
+    getPrevStage(state) {
+      return state.prevStage
+    },
   },
   mutations: {
+    setActiveStage(state, stage) {
+      state.prevStage = state.activeStage
+      state.activeStage = stage
+    },
+    setprevStage(state, stage) {
+      state.prevStage = stage
+    }
   },
   actions: {
   },

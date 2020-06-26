@@ -7,7 +7,12 @@
 <script>
 
 export default {
-  
+  watch: {
+    $route(to, from) {
+      this.$store.commit('setActiveStage', 0)
+      this.$store.commit('setprevStage', 0)
+    }
+  }
 }
 </script>
 
