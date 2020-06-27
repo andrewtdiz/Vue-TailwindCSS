@@ -41,6 +41,7 @@
                
                 <div :class="(activeStage==1 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==1) ? ['opacity-0', 'translate-50'] : ['opacity-0', 'translate-50m']"  class="common-trans flex-1 flex flex-col pb-24 justify-center items-center">
                    
+                    
                    <div class="flex justify-center items-center h-64 w-64 bg-gray-200 rounded-full">
                         <img class="w-48 h-auto mb-6" src="../assets/government.png" alt="">
                    </div>
@@ -54,12 +55,29 @@
                 </div>
                 <div class="h-32 w-3/4 flex mt-auto items-center justify-end relative">
                     <div :class="(activeStage==1 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==1) ? ['opacity-0', 'pointer-events-none', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'pointer-events-none', 'translate-50m'] : ['opacity-0', 'pointer-events-none', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
-                    <button @click="$store.commit('setActiveStage', activeStage+1)" :class="(activeStage==1 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==1) ? ['opacity-0', 'translate-50'] : ['opacity-0', 'translate-50m']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
+                    <button @click="$store.commit('setActiveStage', activeStage+0.5)" :class="(activeStage==1 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==1) ? ['opacity-0', 'translate-50'] : ['opacity-0', 'translate-50m']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
                 </div>
 
             </div>
 
-            <div :class="(activeStage==2 && animDelay) ? ['block', 'z-10'] : (activeStage>2 && animDelay) ? ['hidden'] : (activeStage<2 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
+            <div :class="(activeStage==1.5 && animDelay) ? 'block' : 'hidden'" class="flex-1 overflow-x-hidden relative">
+                <div  class="sk-fading-circle">
+                    <div class="sk-circle1 sk-circle"></div>
+                    <div class="sk-circle2 sk-circle"></div>
+                    <div class="sk-circle3 sk-circle"></div>
+                    <div class="sk-circle4 sk-circle"></div>
+                    <div class="sk-circle5 sk-circle"></div>
+                    <div class="sk-circle6 sk-circle"></div>
+                    <div class="sk-circle7 sk-circle"></div>
+                    <div class="sk-circle8 sk-circle"></div>
+                    <div class="sk-circle9 sk-circle"></div>
+                    <div class="sk-circle10 sk-circle"></div>
+                    <div class="sk-circle11 sk-circle"></div>
+                    <div class="sk-circle12 sk-circle"></div>
+                </div>
+            </div>
+
+            <div :class="(activeStage==2 && anim) ? ['block', 'z-10'] : (activeStage>2 && animDelay) ? ['hidden'] : (activeStage<2 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
                
                 <div :class="(activeStage==2 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==2) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==2) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
                    <div class="flex w-1/2">
@@ -115,22 +133,10 @@
             <div :class="(activeStage==3 && animDelay) ? ['block', 'z-10'] : (activeStage>2 && animDelay) ? ['hidden'] : (activeStage<2 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
                
                 <div :class="(activeStage==3 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==3) ? ['opacity-0', 'translate-50'] :  (prevStage>activeStage && activeStage==3) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
-                   <div class="w-3/5">
+                   <div class="w-3/4 flex flex-col items-start">
                     <h1 class="text-4xl text-left font-bold ">Do any of these situations apply to you?</h1>
                     <p class="mr-auto font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
-                    <div class="mt-12 flex flex-col items-stretch">
-                        <div class="h-8 flex items-center w-full">
-                            <div class="w-8 h-full rounded">
-                                <p class="mr-auto font-medium mb-1 text-md text-gray-700">Yes</p>
-
-                            </div>
-                            <div class="w-8 ml-3 h-full rounded">
-                                <p class="mr-auto font-medium mb-1 text-md text-gray-700">No</p>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col items-stretch">
+                    <!-- <div class="flex flex-col items-stretch">
                         <div class="h-8 flex items-center w-full">
                             
                             <AppealToggle/>
@@ -149,6 +155,11 @@
                             <AppealToggle/>
                             <p class="ml-4 text-lg"> <span class="font-bold">Senior Citizen exemption -</span> Are you over the age of 65?</p>
                         </div>
+                    </div> -->
+                    <div class="flex items-start mt-6">
+                        <Selectable :img="'primary'" :question="'Is this your primary residence?'" class="mx-4"/>
+                        <Selectable :img="'age'" :question="'Are you over the age of 65?'" class="mx-4"/>
+                        <Selectable :img="'usa'" :question="'Are you a veteran?'" class="mx-4"/>
                     </div>
                    </div>
                 </div>
@@ -331,11 +342,13 @@
 <script>
 import NavBar from '../components/NavBar.vue'
 import AppealToggle from '../components/AppealToggle.vue'
+import Selectable from '../components/Selectable.vue'
 
 export default {
     components: {
         NavBar,
-        AppealToggle
+        AppealToggle,
+        Selectable
     },
     beforeCreate() {
         
@@ -344,7 +357,7 @@ export default {
         setTimeout(() => {
             this.$store.commit('setActiveStage', 1)
 
-        }, 1500); 
+        }, 1000); 
     },
     data() {
         return {
@@ -365,10 +378,17 @@ export default {
             this.animDelay = false
             setTimeout(() => {
                 this.anim = true
-            }, 50)
+            }, 150)
             setTimeout(() => {
                 this.animDelay = true
             }, 450)
+
+            if(this.activeStage==1.5) {
+            setTimeout(() => {
+                this.$store.commit('setActiveStage', 2)
+
+            }, 800);
+            }
 
             if(this.activeStage==5) {
             setTimeout(() => {
@@ -398,7 +418,7 @@ export default {
 
 <style>
 .common-trans { 
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
 }
 
 .translate-50 {
