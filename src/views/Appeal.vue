@@ -62,51 +62,47 @@
             <div :class="(activeStage==2 && animDelay) ? ['block', 'z-10'] : (activeStage>2 && animDelay) ? ['hidden'] : (activeStage<2 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
                
                 <div :class="(activeStage==2 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==2) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==2) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
-                   <div class="w-1/2">
-                    <h1 class="text-4xl text-left font-bold ">Basic Information</h1>
-                    <p class="mr-auto font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
-<!-- 
-                    <div class="flex w-full mt-12">
-                        <div class="w-1/2 pr-6 flex flex-col">
-                            <p class="mr-auto font-medium mb-1 text-md text-gray-700">First Name:</p>
-                            <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                        </div>
-                        <div class="w-1/2 flex pr-6 flex-col">
-                            <p class="mr-auto font-medium mb-1 text-md text-gray-700">Last Name:</p>
-                            <input type="text" class="outline-none appearance-none py-2 px-2 text-md border-2 rounded-md border-gray-300 focus:border-brand-500">
-                        </div>
-                    </div>
-                    
-                    <div class="flex w-full mt-6">
-                        <div class="w-3/5 pr-6 flex flex-col">
-                            <p class="mr-auto font-medium mb-1 text-md text-gray-700">Email Address:</p>
-                            <input type="text" class="outline-none appearance-none py-2 px-2 text-md border-2 rounded-md border-gray-300 focus:border-brand-500">
-                        </div>
-                    </div> -->
+                   <div class="flex w-1/2">
+                        <svg version="1.1" class="mr-6 mt-2 h-16 w-16 fill-current text-brand-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256
+                                        s26.629,132.667,74.98,181.02C123.333,485.371,187.62,512,256,512s132.667-26.629,181.02-74.98
+                                        C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,70c30.327,0,55,24.673,55,55c0,30.327-24.673,55-55,55
+                                        c-30.327,0-55-24.673-55-55C201,94.673,225.673,70,256,70z M326,420H186v-30h30V240h-30v-30h110v180h30V420z"/>
+                                </g>
+                            </g>
+                        </svg>
+                       <div class="flex-1">
+                            <h1 class="text-4xl text-left font-bold ">Basic Information</h1>
+                            <p class="mr-auto font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
 
-                    <div class="flex w-full mt-6">
-                        <div class="w-full pr-6 flex flex-col">
-                            <p class="mr-auto font-medium mb-1 text-md text-gray-700">Address:</p>
-                            <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                        </div>
-                    </div>
 
-                    <div class="flex w-full mt-6">
-                        <div class="w-1/3 pr-6 flex flex-col">
-                            <p class="mr-auto font-medium mb-1 text-md text-gray-700">City:</p>
-                            <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                            <div class="flex w-full mt-6">
+                                <div class="w-full pr-6 flex flex-col">
+                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">Address:</p>
+                                    <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                </div>
+                            </div>
+
+                            <div class="flex w-full mt-6">
+                                <div class="w-1/3 pr-6 flex flex-col">
+                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">City:</p>
+                                    <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                </div>
+                                <div class="w-1/3 flex pr-6 flex-col">
+                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">State:</p>
+                                    <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                </div>
+                                <div class="w-1/3 flex pr-6 flex-col">
+                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">Zip/Postal Code:</p>
+                                    <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                </div>
+                            </div>
                         </div>
-                        <div class="w-1/3 flex pr-6 flex-col">
-                            <p class="mr-auto font-medium mb-1 text-md text-gray-700">State:</p>
-                            <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                        </div>
-                        <div class="w-1/3 flex pr-6 flex-col">
-                            <p class="mr-auto font-medium mb-1 text-md text-gray-700">Zip/Postal Code:</p>
-                            <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                        </div>
-                    </div>
-                    
                    </div>
+                   
                 </div>
                 <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
                     <div :class="(activeStage==2 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==2) ? ['opacity-0', 'pointer-events-none', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'pointer-events-none', 'translate-50m'] : ['opacity-0', 'pointer-events-none', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
@@ -167,36 +163,51 @@
             <div :class="(activeStage==4 && animDelay) ? ['block', 'z-10'] : (activeStage>4 && animDelay) ? ['hidden'] : (activeStage<4 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
                
                 <div :class="(activeStage==4 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
-                   <div class="w-1/2">
-                    <h1 class="text-4xl text-left font-bold ">Contact Information</h1>
-                    <p class="mr-auto font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
+                   <div class="flex w-1/2">
+                        <svg version="1.1" class="mr-6 mt-2 h-16 w-16 fill-current text-brand-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path d="M256,0C114.844,0,0,114.844,0,256s114.844,256,256,256s256-114.844,256-256S397.156,0,256,0z M256,74.667
+                                        c67.635,0,122.667,55.031,122.667,122.667S323.635,320,256,320s-122.667-55.031-122.667-122.667S188.365,74.667,256,74.667z
+                                        M256,469.333c-69.707,0-131.52-33.755-170.473-85.615c42.676-20.534,103.621-42.385,170.473-42.385
+                                        c66.857,0,127.807,21.854,170.474,42.383C387.521,435.577,325.708,469.333,256,469.333z"/>
+                                </g>
+                            </g>
+                        </svg>
 
-                    <div class="flex w-full mt-12">
-                        <div class="w-1/2 pr-6 flex flex-col">
-                            <p class="mr-auto font-medium mb-1 text-md text-gray-700">First Name:</p>
-                            <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                        </div>
-                        <div class="w-1/2 flex pr-6 flex-col">
-                            <p class="mr-auto font-medium mb-1 text-md text-gray-700">Last Name:</p>
-                            <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                        </div>
-                    </div>
-                    
-                    <div class="flex w-full mt-6">
-                        <div class="w-3/5 pr-6 flex flex-col">
-                            <p class="mr-auto font-medium mb-1 text-md text-gray-700">Email Address:</p>
-                            <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                        </div>
-                    </div>
+                        <div class="flex-1 ">
+                            <h1 class="text-4xl text-left font-bold ">Contact Information</h1>
+                            <p class="mr-auto font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
 
-                    <div class="flex w-full mt-6">
-                        <div class="w-full pr-6 flex flex-col">
-                            <p class="mr-auto font-medium mb-1 text-md text-gray-700">Phone Number:</p>
-                            <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                        </div>
-                    </div>
+                            <div class="flex w-full mt-12">
+                                <div class="w-1/2 pr-6 flex flex-col">
+                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">First Name:</p>
+                                    <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                </div>
+                                <div class="w-1/2 flex pr-6 flex-col">
+                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">Last Name:</p>
+                                    <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                </div>
+                            </div>
+                            
+                            <div class="flex w-full mt-6">
+                                <div class="w-3/5 pr-6 flex flex-col">
+                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">Email Address:</p>
+                                    <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                </div>
+                            </div>
 
-                   </div>
+                            <div class="flex w-full mt-6">
+                                <div class="w-full pr-6 flex flex-col">
+                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">Phone Number:</p>
+                                    <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                </div>
+                            </div>
+
+                        </div>
+                </div>
+                   
                 </div>
                 <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
                     <div :class="(activeStage==4 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'pointer-events-none', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'pointer-events-none', 'translate-50m'] : ['opacity-0', 'pointer-events-none', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
