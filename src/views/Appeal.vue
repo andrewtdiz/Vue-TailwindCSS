@@ -5,319 +5,391 @@
 
       
         <NavBar />
-        <div class="w-full flex-col flex flex-1">
+        <div class="w-full flex-col flex flex-1 ">
 
-            <div :class="activeStage>=1 ? 'block' : 'hidden'" class="flex w-full">
-                <div class="mx-auto  mt-4  h-16 border-b border-gray-300 flex justify-center items-center w-3/4">
-                    <div class="flex mr-2 w-1/5 flex-col items-end">
-                        <p class="font-medium">ESTIMATED APPEAL: </p>
-                        <p class="font-medium text-gray-500">(in progress)</p>
-                        
-                    </div>
-                    <div class="flex flex-1 flex-col ml-2 justify-center items-start">
-                        <p v-if="savings=='' && activeStage<6 && animDelay" class="font-bold text-3xl">$ N/A</p>
-                        <p v-else class="common-trans font-bold text-3xl">$ {{savings=='' ? 'N/A' : savings}}</p>
-                        
-                    </div>
-                    <div class="ml-auto w-1/5 flex cursor-pointer hover:text-black items-center">
+            <Loading :class="activeStage==0 ? ['block'] : ['hidden']" />
 
-                        <svg class="h-6 w-6 fill-current mr-2 text-brand-500" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0)">
-                            <path d="M509.989 463.655L474.84 361.362C491.746 327.189 500.687 289.097 500.747 250.77C500.849 184.768 475.312 122.36 428.838 75.0429C382.356 27.7179 320.417 1.07988 254.432 0.0328846C219.861 -0.522115 186.315 5.84788 154.675 18.9449C124.158 31.5769 96.7911 49.8759 73.3351 73.3329C49.8781 96.7889 31.5791 124.156 18.9471 154.673C5.84809 186.313 -0.514911 219.876 0.033089 254.43C1.07809 320.415 27.7171 382.354 75.0411 428.836C122.265 475.219 184.513 500.748 250.373 500.747C250.501 500.747 250.638 500.747 250.767 500.747C289.095 500.688 327.186 491.747 361.361 474.84L463.654 509.989C467.588 511.341 471.62 512 475.608 512C485.083 512 494.298 508.277 501.287 501.288C511.219 491.358 514.553 476.938 509.989 463.655ZM247.909 393.103C239.4 393.103 233.099 386.148 232.731 377.925C232.364 369.728 239.97 362.747 247.909 362.747C256.418 362.747 262.719 369.702 263.087 377.925C263.455 386.121 255.848 393.103 247.909 393.103ZM263.087 277.171V325.43C263.087 333.812 256.291 340.608 247.909 340.608C239.527 340.608 232.731 333.812 232.731 325.43V263.525C232.731 255.143 239.527 248.347 247.909 248.347C272.809 248.347 293.068 228.088 293.068 203.188C293.068 178.288 272.809 158.029 247.909 158.029C223.009 158.029 202.75 178.288 202.75 203.188C202.75 211.57 195.954 218.366 187.572 218.366C179.19 218.366 172.394 211.57 172.394 203.188C172.394 161.55 206.27 127.673 247.909 127.673C289.547 127.673 323.424 161.549 323.424 203.188C323.424 239.63 297.477 270.126 263.087 277.171Z"/>
-                            </g>
-                            <defs>
-                            <clipPath id="clip0">
-                            <rect width="512" height="512" fill="white"/>
-                            </clipPath>
-                            </defs>
-                        </svg>
-                        <p class="cursor-pointer">Help</p>
-                    </div>
-                </div>
+            <AppealHeader :class="activeStage>=1 ? 'block' : 'hidden'" :activeStage="activeStage" :savings="savings" :animDelay="animDelay" />
+            
+            <div :class="activeStage>=1 ? 'block' : 'hidden'" class="flex-1 overflow-x-hidden overflow-y-hidden relative">
                 
-            </div>
-            <div :class="activeStage>=1 ? 'block' : 'hidden'" class="flex-1 overflow-x-hidden relative">
-                <div  class="absolute h-full w-full flex flex-col items-center">
-               
-                <div :class="(activeStage==1 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==1) ? ['opacity-0', 'translate-50'] : ['opacity-0', 'translate-50m']"  class="common-trans flex-1 flex flex-col pb-24 justify-center items-center">
-                   
-                    
-                   <div class="flex justify-center items-center h-64 w-64 bg-gray-200 rounded-full">
-                        <img class="w-48 h-auto mb-6" src="../assets/government.png" alt="">
-                   </div>
-                   <h1 class="text-4xl">Let's get you the largest return possible</h1>
-                   <h1 class="w-full text-left mt-4">Here's what we'll do together:</h1>
-                   <ul class="list-disc">
-                       <li class="text-left">Lorem ipsum dolor sit amet</li>
-                       <li class="text-left">Pellentesque eleifend sagittis nisi, quis tincidunt dui tristique a.</li>
-                       <li class="text-left">Suspendisse vitae tellus at justo maximus</li>
-                   </ul>
-                </div>
-                <div class="h-32 w-3/4 flex mt-auto items-center justify-end relative">
-                    <div :class="(activeStage==1 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==1) ? ['opacity-0', 'pointer-events-none', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'pointer-events-none', 'translate-50m'] : ['opacity-0', 'pointer-events-none', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
-                    <button @click="$store.commit('setActiveStage', activeStage+0.5)" :class="(activeStage==1 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==1) ? ['opacity-0', 'translate-50'] : ['opacity-0', 'translate-50m']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
-                </div>
+                <AppealIntro :activeStage="activeStage" :nextValue="0.5" :prevStage="prevStage" :savings="savings" :animDelay="animDelay"  />
+                
+                <Loading :class="(activeStage==1.5 && animDelay) ? 'block' : 'hidden'" />
 
-            </div>
-
-            <div :class="(activeStage==1.5 && animDelay) ? 'block' : 'hidden'" class="flex-1 overflow-x-hidden relative">
-                <div  class="sk-fading-circle">
-                    <div class="sk-circle1 sk-circle"></div>
-                    <div class="sk-circle2 sk-circle"></div>
-                    <div class="sk-circle3 sk-circle"></div>
-                    <div class="sk-circle4 sk-circle"></div>
-                    <div class="sk-circle5 sk-circle"></div>
-                    <div class="sk-circle6 sk-circle"></div>
-                    <div class="sk-circle7 sk-circle"></div>
-                    <div class="sk-circle8 sk-circle"></div>
-                    <div class="sk-circle9 sk-circle"></div>
-                    <div class="sk-circle10 sk-circle"></div>
-                    <div class="sk-circle11 sk-circle"></div>
-                    <div class="sk-circle12 sk-circle"></div>
-                </div>
-            </div>
-
-            <div :class="(activeStage==2 && anim) ? ['block', 'z-10'] : (activeStage>2 && animDelay) ? ['hidden'] : (activeStage<2 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
-               
-                <div :class="(activeStage==2 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==2) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==2) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
-                   <div class="flex w-1/2">
-                        <svg version="1.1" class="mr-6 mt-2 h-16 w-16 fill-current text-brand-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                            <g>
+                <div :class="(activeStage==2 && anim) ? ['block', 'z-10'] : (activeStage>2 && animDelay) ? ['hidden'] : (activeStage<2 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
+                
+                    <div :class="(activeStage==2 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==2) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==2) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
+                    <div class="flex ">
+                            <svg version="1.1" class="mr-6 mt-2 h-16 w-16 fill-current text-brand-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                 <g>
-                                    <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256
-                                        s26.629,132.667,74.98,181.02C123.333,485.371,187.62,512,256,512s132.667-26.629,181.02-74.98
-                                        C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,70c30.327,0,55,24.673,55,55c0,30.327-24.673,55-55,55
-                                        c-30.327,0-55-24.673-55-55C201,94.673,225.673,70,256,70z M326,420H186v-30h30V240h-30v-30h110v180h30V420z"/>
+                                    <g>
+                                        <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256
+                                            s26.629,132.667,74.98,181.02C123.333,485.371,187.62,512,256,512s132.667-26.629,181.02-74.98
+                                            C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,70c30.327,0,55,24.673,55,55c0,30.327-24.673,55-55,55
+                                            c-30.327,0-55-24.673-55-55C201,94.673,225.673,70,256,70z M326,420H186v-30h30V240h-30v-30h110v180h30V420z"/>
+                                    </g>
                                 </g>
-                            </g>
-                        </svg>
-                       <div class="flex-1">
-                            <h1 class="text-4xl text-left font-bold ">Basic Information</h1>
-                            <p class="mr-auto font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
+                            </svg>
+                        <div class="flex-1">
+                                <h1 class="text-4xl text-left ">Property Information</h1>
+                                <p class="mr-auto font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
 
 
-                            <div class="flex w-full mt-6">
-                                <div class="w-full pr-6 flex flex-col">
-                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">Address:</p>
-                                    <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                <div class="flex w-full mt-6">
+                                    <div class="w-full pr-6 flex flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">Address:</p>
+                                        <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                    </div>
+                                </div>
+
+                                <div class="flex w-full mt-6">
+                                    <div class="w-1/3 pr-6 flex flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">City:</p>
+                                        <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                    </div>
+                                    <div class="w-1/3 flex pr-6 flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">State:</p>
+                                        <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                    </div>
+                                    <div class="w-1/3 flex pr-6 flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">Zip/Postal Code:</p>
+                                        <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                    </div>
                                 </div>
                             </div>
+                    </div>
+                    
+                    </div>
+                    <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
+                        <div :class="(activeStage==2 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==2) ? ['opacity-0', 'pointer-events-none', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'pointer-events-none', 'translate-50m'] : ['opacity-0', 'pointer-events-none', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
+                        <button @click="$store.commit('setActiveStage', activeStage-1)" :class="(activeStage==2 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==2) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==2) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">&lt Back</button>
+                        <button @click="$store.commit('setActiveStage', activeStage+1)" :class="(activeStage==2 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==2) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==2) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
+                    </div>
 
-                            <div class="flex w-full mt-6">
-                                <div class="w-1/3 pr-6 flex flex-col">
-                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">City:</p>
-                                    <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                                </div>
-                                <div class="w-1/3 flex pr-6 flex-col">
-                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">State:</p>
-                                    <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                                </div>
-                                <div class="w-1/3 flex pr-6 flex-col">
-                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">Zip/Postal Code:</p>
-                                    <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                                </div>
-                            </div>
-                        </div>
-                   </div>
-                   
-                </div>
-                <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
-                    <div :class="(activeStage==2 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==2) ? ['opacity-0', 'pointer-events-none', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'pointer-events-none', 'translate-50m'] : ['opacity-0', 'pointer-events-none', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
-                    <button @click="$store.commit('setActiveStage', activeStage-1)" :class="(activeStage==2 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==2) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==2) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">&lt Back</button>
-                    <button @click="$store.commit('setActiveStage', activeStage+1)" :class="(activeStage==2 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==2) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==2) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
                 </div>
 
-            </div>
+                <div :class="(activeStage==3 && animDelay) ? ['block', 'z-10'] : (activeStage>3 && animDelay) ? ['hidden'] : (activeStage<3 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
+                
+                    <div :class="(activeStage==3 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==3) ? ['opacity-0', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
+                    <div class="w-3/5">
+                        <h1 class="text-4xl text-left ">Calculating how much you can save...</h1>
+                        <p class="mr-auto font-medium text-gray-500 text-left">It'll only be a moment</p>
 
-            <div :class="(activeStage==3 && animDelay) ? ['block', 'z-10'] : (activeStage>2 && animDelay) ? ['hidden'] : (activeStage<2 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
-               
-                <div :class="(activeStage==3 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==3) ? ['opacity-0', 'translate-50'] :  (prevStage>activeStage && activeStage==3) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
-                   <div class="w-3/4 flex flex-col items-start">
-                    <h1 class="text-4xl text-left font-bold ">Do any of these situations apply to you?</h1>
-                    <p class="mr-auto font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
-                    <!-- <div class="flex flex-col items-stretch">
-                        <div class="h-8 flex items-center w-full">
+
+                    </div>
+                    </div>
+
+                </div>
+
+
+                <div :class="(activeStage==4 && animDelay) ? ['block', 'z-10'] : (activeStage>4 && animDelay) ? ['hidden'] : (activeStage<4 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
+                
+                    <div :class="(activeStage==4 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
+                    <div class="w-3/5">
+                        <h1 class="text-4xl text font-black text-brand-500">We estimate you could save</h1>
+
+                        <h1 class="text-6xl ">${{savings.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}} - ${{(savings+800).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}}</h1>
+                        <div class="flex -mt-2 justify-center items-center">
                             
-                            <AppealToggle/>
-                            <p class="ml-4 text-lg"> <span class="font-bold">Personal exemption -</span> Is this your personal residence?</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col mt-5 items-stretch">
-                        <div class="h-8 flex items-center w-full">
-                            <AppealToggle/>
-
-                            <p class="ml-4 text-lg"> <span class="font-bold">Military exemption -</span> Are you a veteran?</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col mt-5 items-stretch">
-                        <div class="h-8 flex items-center w-full">
-                            <AppealToggle/>
-                            <p class="ml-4 text-lg"> <span class="font-bold">Senior Citizen exemption -</span> Are you over the age of 65?</p>
-                        </div>
-                    </div> -->
-                    <div class="flex items-start mt-6">
-                        <Selectable :img="'primary'" :question="'Is this your primary residence?'" class="mx-4"/>
-                        <Selectable :img="'age'" :question="'Are you over the age of 65?'" class="mx-4"/>
-                        <Selectable :img="'usa'" :question="'Are you a veteran?'" class="mx-4"/>
-                    </div>
-                   </div>
-                </div>
-                <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
-                    <div :class="(activeStage==3 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==3) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage) ? ['opacity-0', 'translate-50m', 'pointer-events-none'] : ['pointer-events-none', 'opacity-0', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
-                    <button @click="$store.commit('setActiveStage', activeStage-1)" :class="(activeStage==3 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==3) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==3) ? ['opacity-0', 'translate-50m'] :   (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">&lt Back</button>
-                    <button @click="$store.commit('setActiveStage', activeStage+1)" :class="(activeStage==3 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==3) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==3) ? ['opacity-0', 'translate-50m'] :   (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
-                </div>
-
-            </div>
-
-            <div :class="(activeStage==4 && animDelay) ? ['block', 'z-10'] : (activeStage>4 && animDelay) ? ['hidden'] : (activeStage<4 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
-               
-                <div :class="(activeStage==4 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
-                   <div class="flex w-1/2">
-                        <svg version="1.1" class="mr-6 mt-2 h-16 w-16 fill-current text-brand-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                            <g>
-                                <g>
-                                    <path d="M256,0C114.844,0,0,114.844,0,256s114.844,256,256,256s256-114.844,256-256S397.156,0,256,0z M256,74.667
-                                        c67.635,0,122.667,55.031,122.667,122.667S323.635,320,256,320s-122.667-55.031-122.667-122.667S188.365,74.667,256,74.667z
-                                        M256,469.333c-69.707,0-131.52-33.755-170.473-85.615c42.676-20.534,103.621-42.385,170.473-42.385
-                                        c66.857,0,127.807,21.854,170.474,42.383C387.521,435.577,325.708,469.333,256,469.333z"/>
-                                </g>
-                            </g>
-                        </svg>
-
-                        <div class="flex-1 ">
-                            <h1 class="text-4xl text-left font-bold ">Contact Information</h1>
-                            <p class="mr-auto font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
-
-                            <div class="flex w-full mt-12">
-                                <div class="w-1/2 pr-6 flex flex-col">
-                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">First Name:</p>
-                                    <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                                </div>
-                                <div class="w-1/2 flex pr-6 flex-col">
-                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">Last Name:</p>
-                                    <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                                </div>
-                            </div>
-                            
-                            <div class="flex w-full mt-6">
-                                <div class="w-3/5 pr-6 flex flex-col">
-                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">Email Address:</p>
-                                    <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                                </div>
-                            </div>
-
-                            <div class="flex w-full mt-6">
-                                <div class="w-full pr-6 flex flex-col">
-                                    <p class="mr-auto font-medium mb-1 text-md text-gray-700">Phone Number:</p>
-                                    <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
-                                </div>
-                            </div>
+                            <p class="text-md font-medium text-brand-500 cursor-pointer hover:underline text-center">How did we calculate this?</p>
 
                         </div>
-                </div>
-                   
-                </div>
-                <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
-                    <div :class="(activeStage==4 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'pointer-events-none', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'pointer-events-none', 'translate-50m'] : ['opacity-0', 'pointer-events-none', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
-                    <button @click="$store.commit('setActiveStage', activeStage-1)" :class="(activeStage==4 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">&lt Back</button>
-                    <button @click="$store.commit('setActiveStage', activeStage+1)" :class="(activeStage==4 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
-                </div>
-
-            </div>
-
-            <div :class="(activeStage==5 && animDelay) ? ['block', 'z-10'] : (activeStage>5 && animDelay) ? ['hidden'] : (activeStage<5 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
-               
-                <div :class="(activeStage==5 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==5) ? ['opacity-0', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
-                   <div class="w-3/5">
-                    <h1 class="text-4xl text-left font-bold ">Calculating how much you can save...</h1>
-                    <p class="mr-auto font-medium text-gray-500 text-left">It'll only be a moment</p>
+                        <h1 class="text-4xl mx-auto mt-12">only with <span class="font-bold text-brand-700">real</span><span class="font-bold text-brand-500">Appeal</span>,</h1>
 
 
-                   </div>
-                </div>
 
-            </div>
-
-
-            <div :class="(activeStage==6 && animDelay) ? ['block', 'z-10'] : (activeStage>6 && animDelay) ? ['hidden'] : (activeStage<6 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
-               
-                <div :class="(activeStage==6 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==6) ? ['opacity-0', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
-                   <div class="w-3/5">
-                    <h1 class="text-4xl text font-black text-brand-500">We estimate your savings will be</h1>
-
-                    <h1 class="text-6xl font-bold ">${{savings}}</h1>
-                    <div class="flex -mt-2 justify-center items-center">
+                        <p class="text-2xl font-medium text-gray-800 text-center ">Lorem ipsum dolor sit amet, consectetur adipiscing elit!</p>
                         
-                        <p class="text-md font-medium text-brand-500 cursor-pointer hover:underline text-center">How did we calculate this?</p>
-
-                    </div>
-
-
-                    <p class="text-2xl font-medium text-gray-800 text-center mt-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit!</p>
-                    
-                    
-
-                   </div>
-                </div>
-                <div class="h-32 w-3/4 flex mt-auto items-center justify-end relative">
-                    <div :class="(activeStage==6 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==6) ? ['opacity-0', 'pointer-events-none', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'pointer-events-none', 'translate-50m'] : ['opacity-0', 'pointer-events-none', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
-                    <button @click="$store.commit('setActiveStage', activeStage+1)" :class="(activeStage==6 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==6) ? ['opacity-0', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Finalize</button>
-                </div>
-
-            </div>
-
-
-            <div :class="(activeStage==7 && animDelay) ? ['block', 'z-10'] : (activeStage>7 && animDelay) ? ['hidden'] : (activeStage<7 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
-               
-                <div :class="(activeStage==7 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==7) ? ['opacity-0', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
-                   <div class="w-3/5">
-                    <h1 class="text-5xl text font-black text-brand-500">Thank you</h1>
-
-                    <p class="text-xl font-medium text-gray-800 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit!</p>
-                    
-                    <h1 class="text-xl text font-black mt-12 text-brand-500">We estimate your savings will be</h1>
-
-                    <h1 class="text-5xl font-bold ">${{savings}}</h1>
-                    <div class="flex -mt-2 justify-center items-center">
                         
-                        <p class="text-md font-medium text-brand-500 cursor-pointer hover:underline text-center">How did we calculate this?</p>
 
                     </div>
+                    </div>
+                    <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
+                        <div :class="(activeStage==4 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'pointer-events-none', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'pointer-events-none', 'translate-50m'] : ['opacity-0', 'pointer-events-none', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
+                        <button @click="$store.commit('setActiveStage', activeStage-2)" :class="(activeStage==4 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">&lt Back</button>
+                        <button @click="$store.commit('setActiveStage', activeStage+1)" :class="(activeStage==4 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage && activeStage==4) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
+                    </div>
 
-
-                    
-                    
-
-                   </div>
                 </div>
 
-            </div>
-            
-            
-            </div>
-            
                 
 
-            <div :class="activeStage==0 ? ['block'] : ['hidden']"  class="sk-fading-circle">
-                <div class="sk-circle1 sk-circle"></div>
-                <div class="sk-circle2 sk-circle"></div>
-                <div class="sk-circle3 sk-circle"></div>
-                <div class="sk-circle4 sk-circle"></div>
-                <div class="sk-circle5 sk-circle"></div>
-                <div class="sk-circle6 sk-circle"></div>
-                <div class="sk-circle7 sk-circle"></div>
-                <div class="sk-circle8 sk-circle"></div>
-                <div class="sk-circle9 sk-circle"></div>
-                <div class="sk-circle10 sk-circle"></div>
-                <div class="sk-circle11 sk-circle"></div>
-                <div class="sk-circle12 sk-circle"></div>
-            </div>
+                <div :class="(activeStage==5 && animDelay) ? ['block', 'z-10'] : (activeStage>5 && animDelay) ? ['hidden'] : (activeStage<5 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
+                
+                    <div :class="(activeStage==5 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==5) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage && activeStage==5) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
+                    <div class="flex w-1/2">
+                            <svg version="1.1" class="mr-6 mt-2 h-16 w-16 fill-current text-brand-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                <g>
+                                    <g>
+                                        <path d="M256,0C114.844,0,0,114.844,0,256s114.844,256,256,256s256-114.844,256-256S397.156,0,256,0z M256,74.667
+                                            c67.635,0,122.667,55.031,122.667,122.667S323.635,320,256,320s-122.667-55.031-122.667-122.667S188.365,74.667,256,74.667z
+                                            M256,469.333c-69.707,0-131.52-33.755-170.473-85.615c42.676-20.534,103.621-42.385,170.473-42.385
+                                            c66.857,0,127.807,21.854,170.474,42.383C387.521,435.577,325.708,469.333,256,469.333z"/>
+                                    </g>
+                                </g>
+                            </svg>
 
+                            <div class="flex-1 ">
+                                <h1 class="text-4xl text-left ">Owner Information</h1>
+                                <p class="mr-auto font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
+
+                                <div class="flex w-full mt-12">
+                                    <div class="w-1/2 pr-6 flex flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">First Name:</p>
+                                        <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                    </div>
+                                    <div class="w-1/2 flex pr-6 flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">Last Name:</p>
+                                        <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                    </div>
+                                </div>
+                                
+                                <div class="flex w-full mt-6">
+                                    <div class="w-3/5 pr-6 flex flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">Email Address:</p>
+                                        <input type="text" class="outline-none appearance-none py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                    </div>
+                                </div>
+
+                                <div class="flex w-full mt-6">
+                                    <div class="w-full pr-6 flex flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">Phone Number:</p>
+                                        <input type="text" class="outline-none appearance-none bg-white py-2 px-2 text-md border rounded-md border-gray-400 focus:border-brand-500">
+                                    </div>
+                                </div>
+
+                            </div>
+                    </div>
+                    
+                    </div>
+                    <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
+                        <div :class="(activeStage==5 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==5) ? ['opacity-0', 'pointer-events-none', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'pointer-events-none', 'translate-50m'] : ['opacity-0', 'pointer-events-none', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
+                        <button @click="$store.commit('setActiveStage', activeStage-1)" :class="(activeStage==5 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==5) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage && activeStage==5) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">&lt Back</button>
+                        <button @click="$store.commit('setActiveStage', activeStage+1)" :class="(activeStage==5 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==5) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage && activeStage==5) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
+                    </div>
+
+                </div>
+
+                
+
+
+                <div :class="(activeStage==6 && animDelay) ? ['block', 'z-10'] : (activeStage>6 && animDelay) ? ['hidden'] : (activeStage<6 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
+                
+                    <div :class="(activeStage==6 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==6) ? ['opacity-0', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
+                    <div class="w-3/5 flex flex-col items-center">
+                        
+                        <h1 class="text-4xl text font-black  text-brand-500">We estimate your savings will be</h1>
+
+                        <h1 class="text-6xl ">${{savings}}</h1>
+                        <div class="flex -mt-2 justify-center items-center">
+                            
+                            <p class="text-md font-medium text-brand-500 cursor-pointer hover:underline text-center">How did we calculate this?</p>
+
+                        </div>
+
+                        <button @click="$store.commit('setActiveStage', activeStage+1)" class="common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 hover:bg-gray-300 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">More savings</button>
+
+
+                        
+                        
+
+                    </div>
+
+                     <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
+                        <div :class="(activeStage==6 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==6) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage) ? ['opacity-0', 'translate-50m', 'pointer-events-none'] : ['pointer-events-none', 'opacity-0', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
+                        <button @click="$store.commit('setActiveStage', activeStage-1)" :class="(activeStage==6 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==6) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==6) ? ['opacity-0', 'translate-50m'] :   (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">&lt Back</button>
+                        <button @click="$store.commit('setActiveStage', activeStage+2)" :class="(activeStage==6 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==6) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==6) ? ['opacity-0', 'translate-50m'] :   (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Finalize</button>
+                    </div>
+                    </div>
+
+                </div>
+
+                <div :class="(activeStage==7 && animDelay) ? ['block', 'z-10'] : (activeStage>7 && animDelay) ? ['hidden'] : (activeStage<5 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
+                
+                    <div :class="(activeStage==7 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==7) ? ['opacity-0', 'translate-50'] :  (prevStage>activeStage && activeStage==7) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
+                    <div class="w-3/4 flex flex-col items-start">
+                        <h1 class="text-4xl text-left ">Do any of these situations apply to you?</h1>
+                        <p class="mr-auto font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
+                        
+                        <div class="flex items-start mt-6">
+                            <Selectable @clicked="savings += 75" @reduce="savings -= 75" :img="'primary'" :question="'Is this your primary residence?'" class="mx-4"/>
+                            <Selectable @clicked="savings += 75" @reduce="savings -= 75" :img="'age'" :question="'Are you over the age of 65?'" class="mx-4"/>
+                            <Selectable @clicked="savings += 75" @reduce="savings -= 75" :img="'usa'" :question="'Are you a veteran?'" class="mx-4"/>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
+                        <div :class="(activeStage==7 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==7) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage) ? ['opacity-0', 'translate-50m', 'pointer-events-none'] : ['pointer-events-none', 'opacity-0', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
+                        <button @click="$store.commit('setActiveStage', activeStage-1)" :class="(activeStage==7 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==7) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==7) ? ['opacity-0', 'translate-50m'] :   (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">&lt Back</button>
+                        <button @click="$store.commit('setActiveStage', activeStage+1)" :class="(activeStage==7 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==7) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==7) ? ['opacity-0', 'translate-50m'] :   (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
+                    </div>
+
+                </div>
             
+                <div :class="(activeStage==8 && animDelay) ? ['block', 'z-10'] : (activeStage>8 && animDelay) ? ['hidden'] : (activeStage<8 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
+                
+                    <div :class="(activeStage==8 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==8) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage && activeStage==8) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
+                    <div class="flex w-1/2">
+                            
+                            <svg class="mr-6 mt-2 h-16 w-16 fill-current text-brand-500" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path d="M503.402,228.885L273.684,19.567c-10.083-9.189-25.288-9.188-35.367-0.001L8.598,228.886
+                                        c-8.077,7.36-10.745,18.7-6.799,28.889c3.947,10.189,13.557,16.772,24.484,16.772h36.69v209.721
+                                        c0,8.315,6.742,15.057,15.057,15.057h125.914c8.315,0,15.057-6.741,15.057-15.057V356.932h74.002v127.337
+                                        c0,8.315,6.742,15.057,15.057,15.057h125.908c8.315,0,15.057-6.741,15.057-15.057V274.547h36.697
+                                        c10.926,0,20.537-6.584,24.484-16.772C514.147,247.585,511.479,236.246,503.402,228.885z"/>
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path d="M445.092,42.73H343.973l116.176,105.636v-90.58C460.149,49.471,453.408,42.73,445.092,42.73z"/>
+                                </g>
+                            </g>
+                            </svg>
 
+
+                            <div class="flex-1 mb-12">
+                                <h1 class="text-4xl text-left ">Summary</h1>
+                                <p class="mr-auto font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
+
+                                <div class="flex w-full mt-6">
+                                    <div class="w-full pr-6 flex flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">Address:</p>
+                                        <h1 type="text" class="outline-none appearance-none py-2 text-md  rounded-md  text-left text-gray-500">1900 Isabel Road Este </h1>
+                                    </div>
+                                </div>
+
+
+                                <div class="flex w-full mt-6">
+                                    <div class="w-1/3 pr-6 flex flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">City:</p>
+                                        <h1 type="text" class="outline-none appearance-none py-2 text-md  rounded-md  text-left text-gray-500">Boca Raton </h1>
+                                    </div>
+                                    <div class="w-1/3 flex pr-6 flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">State:</p>
+                                        <h1 type="text" class="outline-none appearance-none py-2 text-md  rounded-md  text-left text-gray-500">FL </h1>
+                                    </div>
+                                    <div class="w-1/3 flex pr-6 flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">Zip/Postal Code:</p>
+                                        <h1 type="text" class="outline-none appearance-none py-2 text-md  rounded-md  text-left text-gray-500">33486 </h1>
+                                    </div>
+                                </div>
+
+                                <div class="w-full bg-gray-200 my-4" style="height: 3px"></div>
+
+
+                                <div class="flex w-full mt-12">
+                                    <div class="w-1/2 pr-6 flex flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">First Name:</p>
+                                        <h1 type="text" class="outline-none appearance-none py-2 text-md  rounded-md  text-left text-gray-500">Frank </h1>
+                                    </div>
+                                    <div class="w-1/2 flex pr-6 flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">Last Name:</p>
+                                        <h1 type="text" class="outline-none appearance-none py-2 text-md rounded-md text-left text-gray-500">DiZenzo </h1>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex w-full mt-6">
+                                    <div class="w-3/5 pr-6 flex flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">Email Address:</p>
+                                        <h1 type="text" class="outline-none appearance-none py-2 text-md rounded-md text-left text-gray-500">fdizenzo@nd.edu</h1>
+                                    </div>
+                                </div>
+
+                                <div class="flex w-full mt-6">
+                                    <div class="w-full pr-6 flex flex-col">
+                                        <p class="mr-auto font-medium mb-1 text-md text-gray-700">Phone Number:</p>
+                                        <h1 type="text" class="outline-none appearance-none bg-white py-2 text-md rounded-md text-left text-gray-500">561-927-7213</h1>
+                                    </div>
+                                </div>
+
+                            </div>
+                    </div>
+                    
+                    </div>
+                    <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
+                        <div :class="(activeStage==8 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==8) ? ['opacity-0', 'pointer-events-none', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'pointer-events-none', 'translate-50m'] : ['opacity-0', 'pointer-events-none', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
+                        <button @click="$store.commit('setActiveStage', activeStage-1)" :class="(activeStage==8 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==8) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage && activeStage==8) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">&lt Back</button>
+                        <button @click="$store.commit('setActiveStage', activeStage+1)" :class="(activeStage==8 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==8) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage && activeStage==8) ? ['opacity-0', 'translate-50m'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
+                    </div>
+
+                </div>
+
+                <div :class="(activeStage==9 && animDelay) ? ['block', 'z-10'] : (activeStage>9 && animDelay) ? ['hidden'] : (activeStage<9 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
+                
+                    <div :class="(activeStage==9 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==9) ? ['opacity-0', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
+                    <div class="w-3/5 flex flex-col items-center">
+                        
+                        <h1 class="text-4xl text font-black  text-brand-500">You're doing great, sweetie!</h1>
+                        <p class="font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
+
+                        <h1 class="text-left text-3xl mt-12">The appeal costs $0 to complete. <br> You only pay us when your appeal is successful. <br> You only pay us 20% of your appeal.</h1>
+                        <h1 class="text-left text-3xl"></h1>
+                        
+
+                        <h1 class="text-6xl mt-16">${{savings}}</h1>
+                        <div class="flex -mt-2 justify-center items-center">
+                            
+                            <p class="text-md font-medium text-brand-500 cursor-pointer hover:underline text-center">How did we calculate this?</p>
+
+                        </div>
+
+                        
+                        
+
+                    </div>
+
+                     <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
+                        <div :class="(activeStage==9 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==9) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage) ? ['opacity-0', 'translate-50m', 'pointer-events-none'] : ['pointer-events-none', 'opacity-0', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
+                        <button @click="$store.commit('setActiveStage', activeStage-1)" :class="(activeStage==9 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==9) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==9) ? ['opacity-0', 'translate-50m'] :   (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">&lt Back</button>
+                        <button @click="$store.commit('setActiveStage', activeStage+1)" :class="(activeStage==9 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==9) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==9) ? ['opacity-0', 'translate-50m'] :   (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-brand-500 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
+                    </div>
+                    </div>
+
+                </div>
+
+                <div :class="(activeStage==10 && animDelay) ? ['block', 'z-10'] : (activeStage>10 && animDelay) ? ['hidden'] : (activeStage<10 && animDelay) ? 'hidden' : 'block'" class="absolute h-full w-full flex flex-col items-center">
+                
+                    <div :class="(activeStage==10 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==10) ? ['opacity-0', 'translate-50'] :  (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']"  class="common-trans w-3/4 flex-1 flex flex-col justify-start mt-16 items-center">
+                    <div class="w-3/5 flex flex-col items-center">
+                        
+                        <h1 class="text-4xl text-left ">Authorization of agency</h1>
+                        <p class="font-medium text-gray-500 text-left">Lorem ipsum dolor simet et al, pellentesque eleifend</p>
+
+
+                        <button @click="$store.commit('setShowModal', true)" class="mt-20 common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 hover:bg-gray-300 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">View Authorization</button>
+
+                        <div class="items-center mt-6  flex">
+                            <div class="w-6 h-6 mr-4 rounded border border-gray-500">
+
+                            </div>
+                            <p class="font-normal text-gray-800 text-left">I hereby authorize realAppeal to represent me as a property tax agent.</p>
+                            
+                        </div>
+                        
+
+                        
+                        
+
+                    </div>
+
+                     <div class="h-32 w-3/4 flex mt-auto items-center justify-between relative">
+                        <div :class="(activeStage==10 && animDelay) ? ['opacity-100', 'translate-0'] : (prevStage<activeStage && activeStage==10) ? ['opacity-0', 'translate-50'] : (prevStage<activeStage) ? ['opacity-0', 'translate-50m', 'pointer-events-none'] : ['pointer-events-none', 'opacity-0', 'translate-50']"  class="absolute top-0 bg-gray-300 w-full" style="height: 3px;"></div>
+                        <button @click="$store.commit('setActiveStage', activeStage-1)" :class="(activeStage==10 && animDelay) ? ['opacity-100', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==10) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==10) ? ['opacity-0', 'translate-50m'] :   (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-gray-200 text-gray-700 hover:text-gray-800 text-left mt-4 px-12 py-2 rounded">&lt Back</button>
+                        <button @click="$store.commit('setActiveStage', activeStage+1)" :class="(activeStage==10 && animDelay) ? ['opacity-50', 'translate-0', 'z-20'] : (prevStage<activeStage && activeStage==10) ? ['opacity-0', 'translate-50'] : (prevStage>activeStage && activeStage==10) ? ['opacity-0', 'translate-50m'] :   (prevStage<activeStage) ? ['opacity-0', 'translate-50m'] : ['opacity-0', 'translate-50']" class="common-trans text-2xl font-medium title-font bg-brand-500 opacity-50 hover:bg-brand-600 text-white text-left mt-4 px-12 py-2 rounded">Continue</button>
+                    </div>
+                    </div>
+
+                </div>
+            
+            </div>
+            
+                
 
             
             
@@ -343,12 +415,18 @@
 import NavBar from '../components/NavBar.vue'
 import AppealToggle from '../components/AppealToggle.vue'
 import Selectable from '../components/Selectable.vue'
+import AppealHeader from '../components/appeal/AppealHeader.vue'
+import AppealIntro from '../components/appeal/AppealIntro.vue'
+import Loading from '../components/appeal/Loading.vue'
 
 export default {
     components: {
         NavBar,
         AppealToggle,
-        Selectable
+        Selectable,
+        AppealHeader,
+        AppealIntro,
+        Loading
     },
     beforeCreate() {
         
@@ -364,7 +442,7 @@ export default {
             show: false,
             anim: false,
             animDelay: true,
-            savings: '',
+            savings: 0,
             allStages: [
                 {
 
@@ -390,14 +468,14 @@ export default {
             }, 800);
             }
 
-            if(this.activeStage==5) {
+            if(this.activeStage==3) {
             setTimeout(() => {
-                this.$store.commit('setActiveStage', 6)
+                this.$store.commit('setActiveStage', 4)
 
             }, 1500);
             }
-            if(this.activeStage==6) {
-                this.savings = '2,543'
+            if(this.activeStage==4) {
+                this.savings = 2500
             }
         },
     },

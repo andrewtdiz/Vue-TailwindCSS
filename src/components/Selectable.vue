@@ -1,5 +1,5 @@
 <template>
-  <div @click="selected = selected==0 ? 1 : 0" :class="selected==1 ? ['bg-brand-100', ' border-brand-400'] : ['card-4', 'border-transparent' ]" class="w-56 h-56 rounded-lg cursor-pointer flex flex-col border-2">
+  <div @click="selected = selected==0 ? 1 : 0" :class="selected==1 ? ['bg-white', ' border-brand-400'] : ['card-4', 'border-transparent' ]" class="w-56 h-56 rounded-lg cursor-pointer flex flex-col border-2">
     
     <div v-if="img=='primary'" class="flex flex-col justify-end relative" style="height: 60%">
         <img v-if="selected==0" src="../assets/house.png" class="w-2/5 h-auto mx-auto select-none" alt="">
@@ -32,6 +32,11 @@ export default {
     },
     watch: {
         selected() {
+            if(this.selected) {
+            this.$emit('clicked')
+            } else {
+                this.$emit('reduce')
+            }
             this.anim = false
             setTimeout(() => {
                 this.anim = true

@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    showModal: false,
     stage: 0,
     activeStage: -1,
     prevStage: -1,
@@ -77,6 +78,9 @@ export default new Vuex.Store({
     }]
   },
   getters: {
+    getShowModal(state) {
+      return state.showModal
+    },
     getStage(state) {
       return state.stage
     },
@@ -97,6 +101,9 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    setShowModal(state, val) {
+      state.showModal = val
+    },
     setActiveStage(state, stage) {
       state.prevStage = state.activeStage
       state.activeStage = stage

@@ -110,9 +110,9 @@
                 <div class="flex flex-col items-start text-white rounded-md pb-4 pr-auto">
                   <p class="text-2xl w-full text-gray-800 text-center sm:text-left sm:text-2xl lg:text-45xl xl:text-5xl leading-none font-bold">Start saving money <br> on your property taxes</p>
                   <p class="text-sm w-full text-gray-800 text-center sm:text-left sm:text-lg leading-none font-normal mt-6 hidden sm:block">File an appeal and reduce your real estate taxes or get <br> your money back - guaranteed</p>
-                  <p class="text-sm w-full text-gray-800 text-center sm:text-left sm:text-md leading-none px-1 font-normal pt-4 mt-6 hidden sm:block">Search by city or county</p>
+                  <p class="text-sm w-full text-gray-800 text-center sm:text-left sm:text-md leading-none px-1 font-normal pt-4 mt-6 hidden sm:block">Search by zip code</p>
                   <div class="flex justify-start w-full mt-2 ">
-                    <input type="text" class="bg-white rounded outline-none focus:border-teal-500 w-3/4 border-gray-500 text-gray-800 px-2 py-2 border  text-md" placeholder="City/County">
+                    <input type="text" class="bg-white rounded outline-none focus:border-teal-500 w-3/4 border-gray-500 text-gray-800 px-2 py-2 border  text-md" placeholder="Zip Code">
                   </div>
               </div>
             </div>

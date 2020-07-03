@@ -1,13 +1,23 @@
 <template>
-  <div id="app" >
-    <router-view/>
+  <div id="app" class="relative" >
+    <Modal />
+    <router-view />
   </div>
 </template>
 
 <script>
-
+import Modal from './components/Modal.vue'
 export default {
+  components: {
+    Modal,
+  },
+  computed: {
+        showModal() {
+            return this.$store.getters.getShowModal
+        },
+    },
   watch: {
+    
     $route(to, from) {
       this.$store.commit('setActiveStage', 0)
       this.$store.commit('setprevStage', 0)
