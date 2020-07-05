@@ -1,18 +1,21 @@
 <template>
   <div class="flex w-full">
-                <div class="mx-auto  mt-4  h-16 border-b border-gray-300 flex justify-center items-center w-3/4">
-                    <div class="flex mr-2 w-1/5 flex-col items-end">
-                        <p class="font-medium">ESTIMATED SAVINGS: </p>
-                        <p class="font-medium text-gray-500">(in progress)</p>
+                <div class="mx-auto  mt-4  h-16 border-b border-gray-300 flex justify-start items-center w-3/5">
+                    <div class="flex ml-4 ">
+                        <div class="flex flex-col items-end">
+                            <p class="text-brand-500 font-bold">ESTIMATED SAVINGS: </p>
+                            <p class="font- text-sm text-gray-500">(in progress)</p>
+                        </div>
                         
+                        <div class="flex flex-col flex-1 ml-2 justify-center items-start">
+                            <p v-if="savings=='' && activeStage<4" class="font-bold text-2xl">$ -</p>
+                            <p v-if="activeStage>=4 && activeStage<6 " class="common-trans font-bold text-2xl">$ {{savings=='' ? '-' : (savings.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' - ' + (savings+800).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))}}</p>
+                            <p v-if="(animDelay && activeStage>=6) || (activeStage>=7)" class="common-trans font-bold text-2xl">$ {{(savings.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))}}</p>
+                        </div>
                     </div>
-                    <div class="flex flex-col flex-1 ml-2 justify-center items-start">
-                        <p v-if="savings=='' && activeStage<6 && animDelay" class="font-bold text-2xl">$ N/A</p>
-                        <p v-else class="common-trans font-bold text-2xl">$ {{savings=='' ? 'N/A' : (savings.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' - ' + (savings+800).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))}}</p>
-                        
-                    </div>
+                    
 
-                    <div class="w-1/5 flex cursor-pointer hover:text-black items-center">
+                    <div class="ml-auto mr-4 flex justify-end cursor-pointer hover:text-black items-center">
 
                         <svg class="h-6 w-6 fill-current mr-2 text-brand-500" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
